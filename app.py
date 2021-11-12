@@ -26,7 +26,7 @@ UPLOAD_FOLDER ='static/uploads/'
 DOWNLOAD_FOLDER = 'static/downloads/'
 ALLOWED_EXTENSIONS = {'jpg', 'png','.jpeg'}
 
-lineaccesstoken = '833wmgC5++/Cm5YQ7vqL5K4T4PsNUzn8xuSEqhdM1rBTZx9ASXos87YideW6NGDzTYP5WYUnI3BQ2SVoPMa+oP0RiixTAkR6yVpjO8+IQD5sjClu5O11oIoS+k5ini1QG08/BVLw7ukx+tOUeTMmfQdB04t89/1O/w1cDnyilFU='
+lineaccesstoken = ''
 
 line_bot_api = LineBotApi(lineaccesstoken)
 
@@ -42,7 +42,8 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
+    return ""
+"""    if request.method == 'POST':
         if 'file' not in request.files:
             flash('No file attached in request')
             return redirect(request.url)
@@ -178,6 +179,6 @@ def event_handle(event):
         replyObj = StickerSendMessage(package_id=str(1),sticker_id=str(sk_id))
         line_bot_api.reply_message(rtoken, replyObj)
     return ''
-
+"""
 if __name__ == '__main__':
     app.run()
